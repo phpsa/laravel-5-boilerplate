@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
 /**
  * Class AppServiceProvider.
@@ -65,7 +66,12 @@ class AppServiceProvider extends ServiceProvider
 
         // Set the default string length for Laravel5.4
         // https://laravel-news.com/laravel-5-4-key-too-long-error
-        Schema::defaultStringLength(191);
+		Schema::defaultStringLength(191);
+
+		//Enforce SSL ifso configured
+		if(config('app.force_ssl')){
+			URL::forceScheme('https');
+		}
 
         // Set the default template for Pagination to use the included Bootstrap 4 template
         \Illuminate\Pagination\AbstractPaginator::defaultView('pagination::bootstrap-4');
