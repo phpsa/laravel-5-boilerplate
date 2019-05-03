@@ -1,0 +1,72 @@
+version: "3.2"
+services:
+  php:
+    image: platocreative/php:7.3-alpine3.8
+    restart: unless-stopped
+    environment:
+      UID: ${UID}
+      GID: ${GID}
+      SMTP_LOGIN: developers@mailgun.platopreview.co.nz
+      SMTP_PASSWORD: yVH-UaP-M6J-Dd9
+    networks:
+    - backend
+    volumes:
+    - ./:/var/www/html
+  webserver:
+    image: platocreative/httpd:2.4
+    restart: unless-stopped
+    environment:
+      DOCUMENT_ROOT: /var/www/html/public
+      SERVER_NAME: sciwifi.test
+      SERVER_ALIAS: www.sciwifi.test
+      VIRTUAL_HOST: sciwifi.test,www.sciwifi.test,~^www.sciwifi.test\..+\.xip\.io$$
+    depends_on:
+    - php
+    - database
+    networks:
+    - backend
+    - default
+    expose:
+    - 80
+    - 443
+    volumes:
+    - ./:/var/www/html:cached
+  database:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+      MYSQL_USER: plato
+      MYSQL_PASSWORD: staff
+      MYSQL_DATABASE: homestead
+    volumes:
+    - database:/var/lib/mysql
+    - ./.docker/mysql/seed:/docker-entrypoint-initdb.d:ro
+    networks:
+    - backend
+    labels:
+    - db.network.tunnel.hostname=www.sciwifi.test
+  composer:
+    image: platocreative/composer
+    volumes:
+    - vendor:/vendor
+    - ./:/app:delegated
+    command: composer install --ignore-platform-reqs
+  node:
+    image: node:8-jessie
+    working_dir: /var/www/html
+    volumes:
+    - npm_cache:/root/.npm
+    - node_modules:/node_modules
+    - ./:/public:delegated
+    command: yarn
+networks:
+  default:
+    external:
+      name: nginx-proxy
+  backend: null
+volumes:
+  database: null
+  vendor: null
+  npm_cache: null
+  node_modules: null

@@ -1,0 +1,19 @@
+environment:
+  GIT_REPO_NAME: null
+  ASSETS_DIR: null
+  ASSETS_REMOTE_DIR: null
+  ASSETS_EXCLUDE: null
+  ASSETS_REMOTE_URL: null
+  WEB_USER: null
+  WEB_HOST: null
+  WEB_ROOT: null
+  SERVER_NAME: sciwifi.test
+  SERVER_ALIAS: www.sciwifi.test
+  VIRTUAL_HOST: www.sciwifi.test
+  MYSQL_DATABASE: homestead
+  FRAMEWORK: null
+  DB_USERNAME: null
+  DB_HOST: null
+  DB_NAME: null
+  DB_PASSWORD: null
+docker-compose-overrides: null
