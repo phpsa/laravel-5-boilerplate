@@ -1,4 +1,4 @@
-## Laravel 5.8 Boilerplate
+## Laravel 5.8 Boilerplate ([Demo](http://134.209.123.206/))
 
 [![Latest Stable Version](https://poser.pugx.org/rappasoft/laravel-5-boilerplate/v/stable)](https://packagist.org/packages/rappasoft/laravel-5-boilerplate)
 [![Latest Unstable Version](https://poser.pugx.org/rappasoft/laravel-5-boilerplate/v/unstable)](https://packagist.org/packages/rappasoft/laravel-5-boilerplate) 
@@ -9,6 +9,10 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/rappasoft/laravel-5-boilerplate.svg)
 ![GitHub stars](https://img.shields.io/github/stars/rappasoft/laravel-5-boilerplate.svg?style=social)
 
+### Demo Credentials
+
+**User:** admin@admin.com  
+**Password:** secret
 
 ### Official Documentation
 
