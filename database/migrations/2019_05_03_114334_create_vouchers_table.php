@@ -18,6 +18,7 @@ class CreateVouchersTable extends Migration
 		Schema::create('vouchers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
+            $table->string('mobile', 50)->nullable();
             $table->enum('cancelled', ['TRUE', 'FALSE']);
             $table->string('code', 50)->default('');
             $table->string('comment', 255)->nullable();
@@ -31,7 +32,8 @@ class CreateVouchersTable extends Migration
             $table->unsignedInteger('type')->nullable();
             $table->unsignedInteger('up_limit')->nullable();
             $table->string('users', 255)->nullable();
-            $table->nullableTimestamps();
+			$table->nullableTimestamps();
+
 
             $table->unique('code', 'code');
             $table->index('status', 'status');
