@@ -191,7 +191,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
         App\Providers\ObserverServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+		App\Providers\RouteServiceProvider::class,
+
+		Clickatell\ClickatellServiceProvider::class,
     ],
 
     /*
@@ -242,6 +244,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        // Package Aliases
+		// Package Aliases
+		'Clickatell' => Clickatell\ClickatellFacade::class,
     ],
 ];

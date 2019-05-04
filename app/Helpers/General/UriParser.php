@@ -9,7 +9,7 @@ class UriParser
     const ARRAY_QUERY_PATTERN = '/(.*)\[\]/';
     protected $request;
     protected $constantParameters = [
-        'order_by',
+        'sort',
         'group_by',
         'limit',
         'offset',

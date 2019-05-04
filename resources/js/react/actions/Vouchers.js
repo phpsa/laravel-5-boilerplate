@@ -23,7 +23,7 @@ export const setVouchersError = createErrorAction('vouchers')
 export const removeVouchers = createRemoveAction('vouchers')
 
 export const fetchVouchers = createFetchAction(
-	[Vouchers.getWhere,{fields : 'id'}],
+	[Vouchers.getWhere,{fields : 'id'}, 'updated_at desc'],
 	( vouchers ) => {
 
 		return (dispatch, getState) => {
@@ -67,3 +67,11 @@ export const fetchVoucherDetail = createFetchDetailAction(
 		responseData: 'data'
 	}
 )
+
+
+
+export const setVouchersSortPosition = (id, pos ) => ({
+	type: 'SET_VOUCHERS_POS',
+	id,
+	pos
+})

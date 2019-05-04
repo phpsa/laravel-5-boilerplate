@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "959adf0ced7002cfbd449c1fa641a4da",
+    "content-hash": "64ca091454251eccadbc1d425552779a",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
@@ -248,6 +248,55 @@
                 "laravel-self-diagnosis"
             ],
             "time": "2019-03-20T15:23:20+00:00"
+        },
+        {
+            "name": "bigbharatjain/laravel-clickatell",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bigbharatjain/laravel-clickatell.git",
+                "reference": "3091c94a3f5b7afc4440bac2e37a52abe97a888f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bigbharatjain/laravel-clickatell/zipball/3091c94a3f5b7afc4440bac2e37a52abe97a888f",
+                "reference": "3091c94a3f5b7afc4440bac2e37a52abe97a888f",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Clickatell\\ClickatellServiceProvider"
+                    ],
+                    "aliases": {
+                        "Clickatell": "Clickatell\\ClickatellFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Clickatell\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bharat Jain",
+                    "email": "bharat.jain325@gmail.com"
+                }
+            ],
+            "description": "This package makes it easy to send sms using clickatell.com with Laravel 5.",
+            "keywords": [
+                "clickatell",
+                "laravel",
+                "laravel-clickatell",
+                "sms-laravel"
+            ],
+            "time": "2017-10-16T15:19:44+00:00"
         },
         {
             "name": "composer/semver",

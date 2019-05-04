@@ -1,1 +1,23 @@
 //#Styles in here
+
+
+.modal-form {
+	label {
+		display: block;
+		font-weight: bold;
+	}
+	input, select, .p-dropdown, .intl-tel-input {
+		width: 100%;
+	}
+
+	.intl-tel-input {
+		font-size: 14px;
+    color: #333333;
+    background: #ffffff;
+    padding: 0.429em;
+	border: 1px solid #a6a6a6;
+	input {
+		border: 0;
+	}
+	}
+}

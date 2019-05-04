@@ -39,3 +39,5 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
 Route::get('api/auth/session', 'Api\AuthController@session');
 Route::get('api/vouchers', 'Api\VouchersController@index_get');
+
+Route::post('api/vouchers', 'Api\VouchersController@index_post');

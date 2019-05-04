@@ -82,6 +82,15 @@ class Controller extends MainController {
 	   return response()->json($data, $this->getStatusCode(), $headers);
    }
 
+   protected function respondError($message = "An error has occured"){
+	$this->setStatusCode(Res::HTTP_INTERNAL_SERVER_ERROR);
+	return $this->respond([
+		'status' => 'error',
+		'status_code' => Res::HTTP_INTERNAL_SERVER_ERROR,
+		'message' => $message
+	]);
+}
+
    /**
 	* Check if the user has one or more roles
 	*
@@ -128,6 +137,22 @@ class Controller extends MainController {
 	   $limit = $request->input('limit');
 	   $offset = $request->input('offset');
 	   $paginate = $request->input('paginate');
+	   $sort = $request->input('sort');
+
+	   if($sort){
+		   $sorts = explode(",",$sort);
+		   foreach($sorts as $sort){
+			   if(empty($sort)){
+				   continue;
+			   }
+			   $sortP = explode(" ", $sort);
+
+			   $sortF = $sortP[0];
+			   $sortD = !empty($sortP[1]) && strtolower($sortP[1]) == 'asc' ? 'asc' : 'desc';
+			   $this->repository->orderBy($sortF, $sortD);
+
+		   }
+	   }
 
 	   if($with !== NULL){
 		   $this->repository->with(explode("," , $with));
@@ -137,13 +162,18 @@ class Controller extends MainController {
 		   foreach($where as $whr){
 			   switch($whr['type']){
 				   case "In":
-				   	$this->repository->whereIn($whr['key'], $whr['values']);
+				   if(!empty($whr['values'])){
+					   $this->repository->whereIn($whr['key'], $whr['values']);
+				   }
 				   break;
 				   case "NotIn":
-				   $this->repository->whereNotIn($whr['key'], $whr['values']);
+				   if(!empty($whr['values'])){
+					   $this->repository->whereNotIn($whr['key'], $whr['values']);
+				   }
 				   break;
 				   case "Basic":
-				   $this->repository->where($whr['key'], $whr['value'],$whr['operator']);
+					   $this->repository->where($whr['key'], $whr['value'],$whr['operator']);
+
 				   break;
 			   }
 		   }
