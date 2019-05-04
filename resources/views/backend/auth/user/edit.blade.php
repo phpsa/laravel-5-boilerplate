@@ -19,47 +19,75 @@
                 </div><!--col-->
             </div><!--row-->
 
-            <hr>
+			<hr>
 
-            <div class="row mt-4 mb-4">
-                <div class="col">
-                    <div class="form-group row">
-                    {{ html()->label(__('validation.attributes.backend.access.users.first_name'))->class('col-md-2 form-control-label')->for('first_name') }}
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<li class="nav-item">
+				  <a class="nav-link active" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="true">Account</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" id="permissions-tab" data-toggle="tab" href="#permissions" role="tab" aria-controls="permissions" aria-selected="false">Permissions</a>
+				</li>
+			  </ul>
 
-                        <div class="col-md-10">
-                            {{ html()->text('first_name')
-                                ->class('form-control')
-                                ->placeholder(__('validation.attributes.backend.access.users.first_name'))
-                                ->attribute('maxlength', 191)
-                                ->required() }}
-                        </div><!--col-->
-                    </div><!--form-group-->
+			  <div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+					<div class="form-group row">
+						{{ html()->label(__('validation.attributes.backend.access.users.first_name'))->class('col-md-2 form-control-label')->for('first_name') }}
 
-                    <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.access.users.last_name'))->class('col-md-2 form-control-label')->for('last_name') }}
+							<div class="col-md-10">
+								{{ html()->text('first_name')
+									->class('form-control')
+									->placeholder(__('validation.attributes.backend.access.users.first_name'))
+									->attribute('maxlength', 191)
+									->required() }}
+							</div><!--col-->
+						</div><!--form-group-->
 
-                        <div class="col-md-10">
-                            {{ html()->text('last_name')
-                                ->class('form-control')
-                                ->placeholder(__('validation.attributes.backend.access.users.last_name'))
-                                ->attribute('maxlength', 191)
-                                ->required() }}
-                        </div><!--col-->
-                    </div><!--form-group-->
+						<div class="form-group row">
+							{{ html()->label(__('validation.attributes.backend.access.users.last_name'))->class('col-md-2 form-control-label')->for('last_name') }}
 
-                    <div class="form-group row">
-                        {{ html()->label(__('validation.attributes.backend.access.users.email'))->class('col-md-2 form-control-label')->for('email') }}
+							<div class="col-md-10">
+								{{ html()->text('last_name')
+									->class('form-control')
+									->placeholder(__('validation.attributes.backend.access.users.last_name'))
+									->attribute('maxlength', 191)
+									->required() }}
+							</div><!--col-->
+						</div><!--form-group-->
 
-                        <div class="col-md-10">
-                            {{ html()->email('email')
-                                ->class('form-control')
-                                ->placeholder(__('validation.attributes.backend.access.users.email'))
-                                ->attribute('maxlength', 191)
-                                ->required() }}
-                        </div><!--col-->
-                    </div><!--form-group-->
+						<div class="form-group row">
+							{{ html()->label(__('validation.attributes.backend.access.users.email'))->class('col-md-2 form-control-label')->for('email') }}
 
-                    <div class="form-group row">
+							<div class="col-md-10">
+								{{ html()->email('email')
+									->class('form-control')
+									->placeholder(__('validation.attributes.backend.access.users.email'))
+									->attribute('maxlength', 191)
+									->required() }}
+							</div><!--col-->
+						</div><!--form-group-->
+				</div>
+				<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+					<?php foreach($profile as $profKey => $prof): ?>
+					<div class="form-group row">
+						{{ html()->label($prof['label'])->class('col-md-2 form-control-label')->for($profKey) }}
+
+						<div class="col-md-10">
+							{{ html()->{$prof['type']}('profile[' . $profKey . ']')
+								->class('form-control')
+								->value($prof['value'])
+								->placeholder(isset($prof['placeholder']) ? $prof['placeholder'] : null ) }}
+						</div><!--col-->
+					</div><!--form-group-->
+				<?php endforeach; ?>
+
+				</div>
+				<div class="tab-pane fade" id="permissions" role="tabpanel" aria-labelledby="permissions-tab">
+					<div class="form-group row">
                         {{ html()->label('Abilities')->class('col-md-2 form-control-label') }}
 
                         <div class="table-responsive col-md-10">
@@ -126,8 +154,10 @@
                             </table>
                         </div><!--col-->
                     </div><!--form-group-->
-                </div><!--col-->
-            </div><!--row-->
+				</div>
+			  </div>
+
+
         </div><!--card-body-->
 
         <div class="card-footer">

@@ -1,0 +1,66 @@
+.declined_applicants_list {
+	list-style: none;
+	padding-left: 0;
+	max-height: 50vh;
+    overflow: auto;
+
+	li {
+		padding: 6px;
+		border-bottom: 1px dashed #dedede;
+		&:nth-child(even) {
+			background-color: #efefef;
+		}
+
+		&:hover {
+			background-color: #efefef;
+		}
+
+	}
+}
+
+.recover-dialog {
+	width: 750px;
+	max-width: 90vw;
+
+	.declined_applicants_list {
+
+		&__item {
+	        display: flex;
+	        justify-content: space-between;
+	    }
+	    &__buttons {
+	        flex: 1 0 30%;
+	        display: flex;
+	        justify-content: flex-end;
+	        align-items: center;
+	    }
+		
+		li {
+			span {
+				font-size: 0.75rem;
+				color: #000;
+				&.created {
+					color: #787878;
+				}
+				&.address, &.name {
+					font-weight: bold;
+				}
+			}
+
+			button {
+				padding: 2px;
+				span {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+
+button.p-button.p-button-close.dialog-close{
+	position: absolute;
+    top: -35px;
+    right: -25px;
+    font-size: 1rem;
+}

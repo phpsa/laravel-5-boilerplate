@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LanguageController;
 
+Route::view('/app/{path?}', 'app');
+
 /*
  * Global Routes
  * Routes that are used between both frontend and backend.
@@ -33,3 +35,7 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
      */
     include_route_files(__DIR__.'/backend/');
 });
+
+
+Route::get('api/auth/session', 'Api\AuthController@session');
+Route::get('api/vouchers', 'Api\VouchersController@index_get');

@@ -2,6 +2,8 @@
 
 namespace App\Models\Auth\Traits\Method;
 
+use App\Models\UserProfile;
+
 /**
  * Trait UserMethod.
  */
@@ -98,5 +100,15 @@ trait UserMethod
     public function isPending()
     {
         return config('access.users.requires_approval') && ! $this->confirmed;
-    }
+	}
+
+	public function saveProfile($data){
+		$up = new UserProfile;
+
+		foreach($data as $fld => $value){
+			$field = $up->getField($fld, $this->id);
+			$field->value = $value;
+			$field->save();
+		}
+	}
 }

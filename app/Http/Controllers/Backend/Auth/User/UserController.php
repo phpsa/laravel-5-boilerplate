@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend\Auth\User;
 
 use App\Models\Auth\User;
+use App\Models\UserProfile;
 use App\Http\Controllers\Controller;
 use App\Events\Backend\Auth\User\UserDeleted;
 use App\Repositories\Backend\Auth\RoleRepository;
@@ -100,9 +101,12 @@ class UserController extends Controller
      *
      * @return mixed
      */
-    public function edit(ManageUserRequest $request, RoleRepository $roleRepository, PermissionRepository $permissionRepository, User $user)
+    public function edit(ManageUserRequest $request, RoleRepository $roleRepository, PermissionRepository $permissionRepository, User $user, UserProfile $userProfile)
     {
-        return view('backend.auth.user.edit')
+
+
+		return view('backend.auth.user.edit')
+			->withProfile($userProfile->getProfile($user->id))
             ->withUser($user)
             ->withRoles($roleRepository->get())
             ->withUserRoles($user->roles->pluck('name')->all())
@@ -125,7 +129,8 @@ class UserController extends Controller
             'last_name',
             'email',
             'roles',
-            'permissions'
+			'permissions',
+			'profile'
         ));
 
         return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('alerts.backend.users.updated'));

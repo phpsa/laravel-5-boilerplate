@@ -165,7 +165,9 @@ class UserRepository extends BaseRepository
             ])) {
                 // Add selected roles/permissions
                 $user->syncRoles($data['roles']);
-                $user->syncPermissions($data['permissions']);
+				$user->syncPermissions($data['permissions']);
+
+				$user->saveProfile($data['profile']);
 
                 event(new UserUpdated($user));
 

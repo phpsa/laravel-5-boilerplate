@@ -1,0 +1,1 @@
+<script type="text/javascript" src="/assets/dist/vendor.1a9a4db82f2331d5010e.bundle.js"></script><script type="text/javascript" src="/assets/dist/app.844428b031efbd3939bd.bundle.js"></script>
