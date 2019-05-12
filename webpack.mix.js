@@ -13,9 +13,8 @@ const mix = require('laravel-mix');
 
 mix.setPublicPath('public')
 	.setResourceRoot('../') // turns assets paths in css relative to css file
-	.react('resources/js/app.js', 'js/react.js')
-    //.sass('resources/sass/frontend/app.scss', 'css/frontend.css')
-    //.sass('resources/sass/backend/app.scss', 'css/backend.css')
+ //   .sass('resources/sass/frontend/app.scss', 'css/frontend.css')
+ //   .sass('resources/sass/backend/app.scss', 'css/backend.css')
 	.js('resources/js/frontend/app.js', 'js/frontend.js')
     .js([
         'resources/js/backend/before.js',
@@ -30,9 +29,12 @@ mix.setPublicPath('public')
         'popper.js',
         'axios',
         'sweetalert2',
-        'lodash'
+		'lodash',
+		'jquery-validation'
     ])
     .sourceMaps();
+
+	mix.react('resources/js/app.js', 'js/react.js');
 
 if (mix.inProduction()) {
     mix.version()

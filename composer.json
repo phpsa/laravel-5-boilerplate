@@ -26,7 +26,9 @@
         "predis/predis": "^1.1",
         "spatie/laravel-html": "^2.4",
         "spatie/laravel-permission": "^2.36",
-        "torann/geoip": "^1.0"
+        "torann/geoip": "^1.0",
+        "phpsa/datastore": "dev-master",
+        "phpsa/cams-gallery": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
@@ -36,10 +38,11 @@
         "filp/whoops": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.14",
         "fzaninotto/faker": "^1.4",
+        "melihovv/laravel-package-generator": "^5.8",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
         "phpunit/phpunit": "^8.0",
-        "roave/security-advisories" : "dev-master"
+        "roave/security-advisories": "dev-master"
     },
     "config": {
         "optimize-autoloader": true,
@@ -116,5 +119,15 @@
             "@php artisan self-diagnosis",
             "npm audit"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/phpsa/datastore"
+        },
+        {
+            "type": "path",
+            "url": "packages/phpsa/cams-gallery"
+        }
+    ]
 }

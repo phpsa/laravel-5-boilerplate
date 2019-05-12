@@ -1,4 +1,5 @@
 <div class="sidebar">
+
     <nav class="sidebar-nav">
         <ul class="nav">
             <li class="nav-title">
@@ -11,7 +12,10 @@
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     @lang('menus.backend.sidebar.dashboard')
                 </a>
-            </li>
+			</li>
+
+			@include('phpsa-datastore::backend.sidebar')
+
 
             <li class="nav-title">
                 @lang('menus.backend.sidebar.system')

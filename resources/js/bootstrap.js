@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import $ from 'jquery';
 import 'popper.js'; // Required for BS4
 import 'bootstrap';
+import 'jquery-validation';
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support

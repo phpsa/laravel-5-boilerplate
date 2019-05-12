@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64ca091454251eccadbc1d425552779a",
+    "content-hash": "ffd6afc3417b9c6aa80a01c737e9b78e",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
@@ -2668,6 +2668,122 @@
                 "type"
             ],
             "time": "2015-07-25T16:39:46+00:00"
+        },
+        {
+            "name": "phpsa/cams-gallery",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/phpsa/cams-gallery",
+                "reference": "c965ba11b4717c4c4c9b7d8af443724e475957ce",
+                "shasum": null
+            },
+            "require": {
+                "illuminate/support": "~5.8.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.7.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Phpsa\\CamsGallery\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phpsa\\CamsGallery\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Phpsa\\CamsGallery\\Tests\\": "tests"
+                },
+                "files": [
+                    "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+                ]
+            },
+            "scripts": {
+                "phpunit": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Craig Smith",
+                    "email": "vxdhost@gmail.com"
+                }
+            ],
+            "description": "A Gallery component for the Phpsa CAMS system",
+            "keywords": [
+                " ams",
+                " datastore",
+                " gallery",
+                "cms"
+            ]
+        },
+        {
+            "name": "phpsa/datastore",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/phpsa/datastore",
+                "reference": "e0a1c52ff411d918bfb36ebc73e0ce7d75a4462b",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.7.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Phpsa\\Datastore\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phpsa\\Datastore\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Phpsa\\Datastore\\Tests\\": "tests"
+                },
+                "files": [
+                    "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+                ]
+            },
+            "scripts": {
+                "phpunit": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Craig Smith",
+                    "email": "vxdhost@gmail.com"
+                }
+            ],
+            "description": "A datastore",
+            "keywords": [
+                "datastore"
+            ]
         },
         {
             "name": "predis/predis",
@@ -5889,6 +6005,59 @@
             "time": "2017-12-15T11:13:46+00:00"
         },
         {
+            "name": "melihovv/laravel-package-generator",
+            "version": "5.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/melihovv/laravel-package-generator.git",
+                "reference": "3f0ecc8f470bc7b156f206768b4b893660cfb11a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/melihovv/laravel-package-generator/zipball/3f0ecc8f470bc7b156f206768b4b893660cfb11a",
+                "reference": "3f0ecc8f470bc7b156f206768b4b893660cfb11a",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/container": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/filesystem": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/support": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/view": "~5.3.0|~5.4.0|~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Melihovv\\LaravelPackageGenerator\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Melihovv\\LaravelPackageGenerator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Melihov",
+                    "email": "amelihovv@ya.ru"
+                }
+            ],
+            "description": "A laravel package generator",
+            "keywords": [
+                "generator",
+                "laravel",
+                "package"
+            ],
+            "time": "2019-03-02T17:26:26+00:00"
+        },
+        {
             "name": "mockery/mockery",
             "version": "1.2.2",
             "source": {
@@ -8004,6 +8173,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "phpsa/datastore": 20,
+        "phpsa/cams-gallery": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

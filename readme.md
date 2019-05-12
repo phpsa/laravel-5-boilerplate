@@ -1,7 +1,7 @@
 ## Laravel 5.8 Boilerplate ([Demo](http://134.209.123.206/))
 
 [![Latest Stable Version](https://poser.pugx.org/rappasoft/laravel-5-boilerplate/v/stable)](https://packagist.org/packages/rappasoft/laravel-5-boilerplate)
-[![Latest Unstable Version](https://poser.pugx.org/rappasoft/laravel-5-boilerplate/v/unstable)](https://packagist.org/packages/rappasoft/laravel-5-boilerplate) 
+[![Latest Unstable Version](https://poser.pugx.org/rappasoft/laravel-5-boilerplate/v/unstable)](https://packagist.org/packages/rappasoft/laravel-5-boilerplate)
 <br/>
 [![StyleCI](https://styleci.io/repos/30171828/shield?style=plastic)](https://styleci.io/repos/30171828/shield?style=plastic)
 [![CircleCI](https://circleci.com/gh/rappasoft/laravel-5-boilerplate/tree/master.svg?style=svg)](https://circleci.com/gh/rappasoft/laravel-5-boilerplate/tree/master)
@@ -11,7 +11,7 @@
 
 ### Demo Credentials
 
-**User:** admin@admin.com  
+**User:** admin@admin.com
 **Password:** secret
 
 ### Official Documentation
@@ -49,3 +49,5 @@ If you would like to help the continued efforts of this project, any size [donat
 ### License
 
 MIT: [http://anthony.mit-license.org](http://anthony.mit-license.org)
+
+### jQuery Validation.
