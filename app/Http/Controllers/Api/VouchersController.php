@@ -81,7 +81,7 @@ class VouchersController extends Controller
 		}
 
 		$message = 'Your wifi voucher code for ' . $this->user()->getProfile('network_name')->value .' is: ' . $code;
-		$message .= "\n\n" . 'Please enter teh code EXACTLY as it appears on the wifi networks landking page.';
+		$message .= "\n\n" . 'Please enter the code EXACTLY as it appears on the wifi networks landing page.';
 		$message .= "\nThank you";
 
 
