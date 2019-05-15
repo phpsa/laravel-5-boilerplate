@@ -156,7 +156,7 @@ class DashBoardComponent extends Component {
 			<div className="p-col-2"><strong>{voucher.code}</strong></div>
 			<div className="p-col-2">{moment(voucher.updated_at).format('DD/MM/YYYY H:MM a')}</div>
 			<div className="p-col-2">{voucher.duration / 24} Day(s)</div>
-			<div className="p-col-2ex">{voucher.mobile}</div>
+			<div className="p-col-2">{voucher.mobile}</div>
 			<div className="p-col-4">{voucher.comment}</div>
 			</React.Fragment>
 			) : <Loading className="smaller" />}

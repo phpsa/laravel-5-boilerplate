@@ -111,4 +111,8 @@ trait UserMethod
 			$field->save();
 		}
 	}
+
+	public function getProfile($field = null){
+		return ($field) ? UserProfile::getField($field, $this->id) : UserProfile::getProfile($this->id);
+	}
 }

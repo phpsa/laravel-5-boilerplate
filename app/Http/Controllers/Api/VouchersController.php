@@ -26,18 +26,21 @@ class VouchersController extends Controller
 
 
     public function index_get(Request $request){
-		$this->repository->where('user_id', $this->user()->id);
+		$network_id = $this->user()->getProfile('network_id')->value;
+
+		$this->repository->where('network_id', $network_id);
 		$this->repository->where('status', 'used');
 		$this->repository->where('cancelled', 'FALSE');
-
-
 
 		return $this->basic_get($request);
 	}
 
 
 	public function index_post(Request $request){
-		$this->repository->where('user_id', $this->user()->id);
+
+		$network_id = $this->user()->getProfile('network_id')->value;
+
+		$this->repository->where('network_id', $network_id);
 		$this->repository->where('status', 'unused');
 		$this->repository->where('duration', $request->input('duration'));
 		$this->repository->where('cancelled', 'FALSE');
@@ -54,6 +57,9 @@ class VouchersController extends Controller
 		$rec->mobile = $request->input('phone');
 		try {
 			$rec->save();
+			if($rec->mobile){
+				$this->sendMessage($rec->mobile, $rec->code);
+			}
 
 		}catch(\Exception $e){
 			return $this->respondError('We are unable to add a new voucher at this time, please try again later');
@@ -66,14 +72,18 @@ class VouchersController extends Controller
 
 	}
 
-	protected function sendMessage($to, $message){
+	protected function sendMessage($to, $code){
 
 		$apiKey = config('clickatell.api_key');
 
 		if(!$apiKey){
 			return;
 		}
-		//curl "?apiKey=ri_ADvN3RSCV6VSwkgCK7A==&to=27847244333&content=Test+message+text"
+
+		$message = 'Your wifi voucher code for ' . $this->user()->getProfile('network_name')->value .' is: ' . $code;
+		$message .= "\n\n" . 'Please enter teh code EXACTLY as it appears on the wifi networks landking page.';
+		$message .= "\nThank you";
+
 
 		$endpoint = "https://platform.clickatell.com/messages/http/send";
 		$client = new \GuzzleHttp\Client();
@@ -81,14 +91,16 @@ class VouchersController extends Controller
 
 		try {
 			$response = $client->request('GET', $endpoint, ['query' => [
-				'apiKey' => $apiKey,
+				'apiKey' => 'ri_ADvN3RSCV6VSwkgCK7A==',
 				'to' =>  $to,
 				'content' => $message
 			]]);
 
 		}catch(\Exception $e){
-
+			//dd($e->getMessage());
 		}
+
+		//dd($response);
 	}
 
 }

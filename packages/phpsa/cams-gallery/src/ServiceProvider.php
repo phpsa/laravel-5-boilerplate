@@ -2,6 +2,8 @@
 
 namespace Phpsa\CamsGallery;
 
+use Illuminate\Support\Facades\Route;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     const CONFIG_PATH = __DIR__ . '/../config/cams-gallery.php';
@@ -10,7 +12,10 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->publishes([
             self::CONFIG_PATH => config_path('cams-gallery.php'),
-        ], 'config');
+		], 'config');
+
+		Route::middleware('web')
+			->group(__DIR__.'/routes.php');
     }
 
     public function register()

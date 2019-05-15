@@ -26,9 +26,7 @@
         "predis/predis": "^1.1",
         "spatie/laravel-html": "^2.4",
         "spatie/laravel-permission": "^2.36",
-        "torann/geoip": "^1.0",
-        "phpsa/datastore": "dev-master",
-        "phpsa/cams-gallery": "dev-master"
+        "torann/geoip": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",
@@ -119,15 +117,5 @@
             "@php artisan self-diagnosis",
             "npm audit"
         ]
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "packages/phpsa/datastore"
-        },
-        {
-            "type": "path",
-            "url": "packages/phpsa/cams-gallery"
-        }
-    ]
+    }
 }

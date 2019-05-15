@@ -10,14 +10,19 @@ class UserProfile extends Model
 	protected $table = 'user_profile';
 	public $timestamps = false;
 
-	public $profile_fields = [
-		'api_key' => array (
-			'label' => 'API KEY',
+	public static $profile_fields = [
+		'network_id' => array (
+			'label' => 'Network Id',
 			'json' => false,
 			'type' => 'text'
 		),
-		'api_secret' => array(
-			'label' => 'API Secret',
+		'account_id' => array(
+			'label' => 'Account Id',
+			'json' => false,
+			'type' => 'text'
+		),
+		'network_name' => array(
+			'label' => 'Network Name',
 			'json' => false,
 			'type' => 'text'
 		)
@@ -36,8 +41,8 @@ class UserProfile extends Model
         return $this->belongsTo(User::class);
 	}
 
-	public function getField( $key, $user_id){
-		$record =  $this->firstOrNew(['user_id' => $user_id, 'label' => $key]);
+	public static function getField( $key, $user_id){
+		$record =  self::firstOrNew(['user_id' => $user_id, 'label' => $key]);
 		if($record && $record->json){
 			$record->value = json_decode($record->value);
 		}
@@ -45,11 +50,11 @@ class UserProfile extends Model
 		return $record;
 	}
 
-	public function getProfile($user_id){
-		$items = $this->where('user_id',$user_id)->get();
-		$fields = $this->profile_fields;
+	public static function getProfile($user_id){
+		$items = self::where('user_id',$user_id)->get();
+		$fields = self::$profile_fields;
 		foreach($fields as $key => &$data){
-			$data['value'] = $this->getField($key, $user_id)->value;
+			$data['value'] = self::getField($key, $user_id)->value;
 		}
 		return $fields;
 	}
