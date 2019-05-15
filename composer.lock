@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffd6afc3417b9c6aa80a01c737e9b78e",
+    "content-hash": "4d7796c258c96f005be6b9e7330b67f8",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
@@ -2668,122 +2668,6 @@
                 "type"
             ],
             "time": "2015-07-25T16:39:46+00:00"
-        },
-        {
-            "name": "phpsa/cams-gallery",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "packages/phpsa/cams-gallery",
-                "reference": "c965ba11b4717c4c4c9b7d8af443724e475957ce",
-                "shasum": null
-            },
-            "require": {
-                "illuminate/support": "~5.8.0",
-                "php": ">=7.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.7.0",
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Phpsa\\CamsGallery\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Phpsa\\CamsGallery\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Phpsa\\CamsGallery\\Tests\\": "tests"
-                },
-                "files": [
-                    "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
-                ]
-            },
-            "scripts": {
-                "phpunit": [
-                    "phpunit"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Craig Smith",
-                    "email": "vxdhost@gmail.com"
-                }
-            ],
-            "description": "A Gallery component for the Phpsa CAMS system",
-            "keywords": [
-                " ams",
-                " datastore",
-                " gallery",
-                "cms"
-            ]
-        },
-        {
-            "name": "phpsa/datastore",
-            "version": "dev-master",
-            "dist": {
-                "type": "path",
-                "url": "packages/phpsa/datastore",
-                "reference": "e0a1c52ff411d918bfb36ebc73e0ce7d75a4462b",
-                "shasum": null
-            },
-            "require": {
-                "php": ">=7.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "~3.7.0",
-                "phpunit/phpunit": "^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Phpsa\\Datastore\\ServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Phpsa\\Datastore\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Phpsa\\Datastore\\Tests\\": "tests"
-                },
-                "files": [
-                    "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
-                ]
-            },
-            "scripts": {
-                "phpunit": [
-                    "phpunit"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Craig Smith",
-                    "email": "vxdhost@gmail.com"
-                }
-            ],
-            "description": "A datastore",
-            "keywords": [
-                "datastore"
-            ]
         },
         {
             "name": "predis/predis",
@@ -6540,6 +6424,62 @@
             "time": "2017-07-14T14:27:02+00:00"
         },
         {
+            "name": "phpsa/datastore",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "packages/phpsa/datastore",
+                "reference": "e0a1c52ff411d918bfb36ebc73e0ce7d75a4462b",
+                "shasum": null
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.7.0",
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Phpsa\\Datastore\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Phpsa\\Datastore\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Phpsa\\Datastore\\Tests\\": "tests"
+                },
+                "files": [
+                    "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
+                ]
+            },
+            "scripts": {
+                "phpunit": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Craig Smith",
+                    "email": "vxdhost@gmail.com"
+                }
+            ],
+            "description": "A datastore",
+            "keywords": [
+                "datastore"
+            ]
+        },
+        {
             "name": "phpspec/prophecy",
             "version": "1.8.0",
             "source": {
@@ -8173,8 +8113,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "phpsa/datastore": 20,
-        "phpsa/cams-gallery": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

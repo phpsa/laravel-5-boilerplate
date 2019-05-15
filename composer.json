@@ -117,5 +117,15 @@
             "@php artisan self-diagnosis",
             "npm audit"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "packages/phpsa/datastore"
+        },
+        {
+            "type": "path",
+            "url": "packages/phpsa/cams-gallery"
+        }
+    ]
 }
