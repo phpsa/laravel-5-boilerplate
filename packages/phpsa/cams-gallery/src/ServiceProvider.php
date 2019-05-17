@@ -16,6 +16,13 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
 		Route::middleware('web')
 			->group(__DIR__.'/routes.php');
+
+				//Translations
+		$this->loadTranslationsFrom(__DIR__.'/translations', 'phpsa-cams-gallery');
+
+		$this->publishes([
+			__DIR__.'/translations' => resource_path('lang/vendor/phpsa-cams-gallery'),
+		]);
     }
 
     public function register()
@@ -27,6 +34,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         $this->app->bind('cams-gallery', function () {
             return new CamsGallery();
-        });
+		});
+
+		$this->loadViewsFrom(__DIR__.'/views', 'phpsa-cams-gallery');
     }
 }

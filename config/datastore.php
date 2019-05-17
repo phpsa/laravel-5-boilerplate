@@ -2,7 +2,7 @@
 
 return [
 	'assets' => [
-
+		Phpsa\Datastore\Ams\BlockAsset::class,
 		Phpsa\Datastore\Ams\ContentAsset::class,
 		Phpsa\Datastore\Ams\Article\CategoryAsset::class,
 		Phpsa\Datastore\Ams\Article\ItemAsset::class,
