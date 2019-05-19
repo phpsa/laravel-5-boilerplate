@@ -1,0 +1,9 @@
+.form-group .autoinput + ul.dropdown-menu {
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.ams-image-upload-card {
+	width: 150px;
+	margin-bottom: 0;
+}
