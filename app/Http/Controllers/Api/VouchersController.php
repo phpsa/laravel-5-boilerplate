@@ -56,7 +56,7 @@ class VouchersController extends Controller
 		$rec->comment = $request->input('comment');
 		$rec->mobile = $request->input('phone');
 		try {
-			$rec->save();
+			$id = $rec->save();
 			if($rec->mobile){
 				$this->sendMessage($rec->mobile, $rec->code);
 			}
@@ -68,7 +68,7 @@ class VouchersController extends Controller
 
 
 
-		return $this->respondCreated('Voucher Created', ['id' => $rec->id]);
+		return $this->respondCreated('Voucher Created', $rec);
 
 	}
 
@@ -88,13 +88,13 @@ class VouchersController extends Controller
 		$endpoint = "https://platform.clickatell.com/messages/http/send";
 		$client = new \GuzzleHttp\Client();
 
-
 		try {
 			$response = $client->request('GET', $endpoint, ['query' => [
 				'apiKey' => 'ri_ADvN3RSCV6VSwkgCK7A==',
 				'to' =>  $to,
 				'content' => $message
 			]]);
+
 
 		}catch(\Exception $e){
 			//dd($e->getMessage());

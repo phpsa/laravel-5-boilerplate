@@ -1,5 +1,8 @@
-memory_limit = 256M
+memory_limit = 512M
 max_execution_time = 300
 upload_max_filesize = 10M
-post_max_size = 10M
+default_socket_timeout = 300
+max_input_time = 300;
+post_max_size = 50M;
 date.timezone = "Pacific/Auckland"
+xdebug.profiler_enable_trigger = 1;

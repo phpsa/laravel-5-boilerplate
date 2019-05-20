@@ -14,6 +14,8 @@ Package description: CHANGE ME
 
 ## Installation
 
+Requires CAMS (Content Assets Managment System) package from [phsa/datastore](https://github.com/phpsa/laravel-5-cams)
+
 Install via composer
 ```bash
 composer require phpsa/cams-gallery
@@ -36,15 +38,18 @@ Register package facade in `config/app.php` in `aliases` section
 Phpsa\CamsGallery\Facades\CamsGallery::class,
 ```
 
-### Publish Configuration File
+### Edit Datastore Configuration File
 
-```bash
-php artisan vendor:publish --provider="Phpsa\CamsGallery\ServiceProvider" --tag="config"
+Edit the 'configs/datastore.php' config file and add the following to the assets config:
+```php
+		Phpsa\CamsGallery\Ams\Gallery\CategoryAsset::class,
+		Phpsa\CamsGallery\Ams\Gallery\PageAsset::class
 ```
 
 ## Usage
 
-CHANGE ME
+Gallery admin is now available in the admin panel under the ams management menu
+Views can be edited by overwriting the view files by placing them in ...
 
 ## Security
 

@@ -1,4 +1,4 @@
-version: "3.2"
+version: "3"
 services:
   php:
     image: platocreative/php:7.3-alpine3.8
@@ -11,7 +11,7 @@ services:
     networks:
     - backend
     volumes:
-    - ./:/var/www/html
+    - www-sync:/var/www/html
   webserver:
     image: platocreative/httpd:2.4
     restart: unless-stopped
@@ -30,7 +30,7 @@ services:
     - 80
     - 443
     volumes:
-    - ./:/var/www/html:cached
+    - www-sync:/var/www/html
   database:
     image: mysql:5.7
     restart: unless-stopped
@@ -49,17 +49,20 @@ services:
   composer:
     image: platocreative/composer
     volumes:
-    - vendor:/vendor
-    - ./:/app:delegated
+    - www-sync:/vendor
     command: composer install --ignore-platform-reqs
   node:
-    image: node:8-jessie
-    working_dir: /var/www/html
+    image: node:10-jessie
+    working_dir: /
     volumes:
-    - npm_cache:/root/.npm
-    - node_modules:/node_modules
-    - ./:/public:delegated
-    command: yarn
+    - www-sync:/node_modules
+    command: npm install
+  sync:
+    image: platocreative/mutagen-sync
+    command: tail -f /dev/null
+    restart: unless-stopped
+    volumes:
+    - www-sync:/var/www/html:nocopy
 networks:
   default:
     external:
@@ -67,6 +70,4 @@ networks:
   backend: null
 volumes:
   database: null
-  vendor: null
-  npm_cache: null
-  node_modules: null
+  www-sync: null
