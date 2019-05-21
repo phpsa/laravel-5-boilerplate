@@ -8,8 +8,8 @@ return [
 		Phpsa\Datastore\Ams\Article\ItemAsset::class,
 		Phpsa\Datastore\Ams\TabsAsset::class,
 		Phpsa\CamsGallery\Ams\Gallery\CategoryAsset::class,
-		Phpsa\CamsGallery\Ams\Gallery\PageAsset::class
-	//	Phpsa\Datastore\Ams\TestAsset::class
+		Phpsa\CamsGallery\Ams\Gallery\PageAsset::class,
+		Phpsa\Datastore\Ams\TestAsset::class
 	],
 	'urlprefix' => 'ams'
 ];

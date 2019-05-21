@@ -10,7 +10,7 @@
 
 progress:not(value) {
 	/* Add your styles here. As part of this walkthrough we will focus only on determinate progress bars. */
-	display:none;
+	display: none;
 }
 
 /* Styling the determinate progress element */
